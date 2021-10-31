@@ -5,6 +5,7 @@ export const Container = styled.View({
   backgroundColor: 'white',
   flexDirection: 'column',
   paddingVertical: 10,
+  marginTop: 10,
 });
 
 export const Label = styled.Text({
@@ -30,4 +31,11 @@ export const Type = styled.Text({
   color: 'gray',
   fontWeight: 500,
   fontSize: 16,
+  textTransform: 'capitalize',
+});
+
+export const Separator = styled.View({
+  borderBottomWidth: 0.3,
+  borderBottomColor: 'gray',
+  marginTop: 20,
 });

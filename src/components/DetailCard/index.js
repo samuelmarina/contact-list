@@ -1,5 +1,12 @@
 import React from 'react';
-import { Container, Label, InnerContainer, Value, Type } from './styles';
+import {
+  Container,
+  Label,
+  InnerContainer,
+  Value,
+  Type,
+  Separator,
+} from './styles';
 
 const DetailCard = ({ label = '', value = '', type = '' }) => {
   return (
@@ -9,6 +16,7 @@ const DetailCard = ({ label = '', value = '', type = '' }) => {
         <Value>{value}</Value>
         <Type>{type}</Type>
       </InnerContainer>
+      <Separator />
     </Container>
   );
 };
