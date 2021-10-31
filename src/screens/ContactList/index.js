@@ -7,28 +7,7 @@ import SectionHeader from '../../components/SectionHeader';
 import axios from '../../util/axios';
 
 const ContactList = ({ navigation }) => {
-  const dummy = [
-    {
-      title: 'Favs',
-      data: [
-        {
-          name: 'Pedro Perez',
-          isFav: true,
-        },
-      ],
-    },
-    {
-      title: 'Others',
-      data: [
-        {
-          name: 'Pedro Perez',
-          isFav: true,
-        },
-      ],
-    },
-  ];
-
-  const [data, setData] = useState(dummy);
+  const [data, setData] = useState([{ title: 'Temp', data: [] }]);
   const [isLoading, setIsLoading] = useState(true);
   const [favList, setFavList] = useState({ title: 'Favs', data: [] });
   const [othersList, setOthersList] = useState({ title: 'Others', data: [] });
@@ -64,7 +43,6 @@ const ContactList = ({ navigation }) => {
             tempOthers.push(item);
           }
         });
-
         setFavList({ title: 'Favs', data: tempFav });
         setOthersList({ title: 'Others', data: tempOthers });
         setData([favList, othersList]);
