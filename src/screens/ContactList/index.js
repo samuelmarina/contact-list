@@ -5,12 +5,16 @@ import Contact from '../../components/Contact';
 import { Container, Separator, LoaderContainer } from './styles';
 import SectionHeader from '../../components/SectionHeader';
 import axios from '../../util/axios';
+import { text } from '../../util/constants/text';
 
 const ContactList = ({ navigation }) => {
   const [data, setData] = useState([{ title: 'Temp', data: [] }]);
   const [isLoading, setIsLoading] = useState(true);
-  const [favList, setFavList] = useState({ title: 'Favs', data: [] });
-  const [othersList, setOthersList] = useState({ title: 'Others', data: [] });
+  const [favList, setFavList] = useState({ title: text.favContacts, data: [] });
+  const [othersList, setOthersList] = useState({
+    title: text.otherContacts,
+    data: [],
+  });
 
   const renderItem = ({ item, index }) => {
     const { isFavorite } = item;
@@ -43,8 +47,8 @@ const ContactList = ({ navigation }) => {
             tempOthers.push(item);
           }
         });
-        setFavList({ title: 'Favs', data: tempFav });
-        setOthersList({ title: 'Others', data: tempOthers });
+        setFavList({ title: text.favContacts, data: tempFav });
+        setOthersList({ title: text.otherContacts, data: tempOthers });
         setData([favList, othersList]);
       } catch (e) {
         setIsLoading(false);
