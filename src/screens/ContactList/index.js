@@ -78,7 +78,7 @@ const ContactList = ({ navigation }) => {
 
   return (
     <Container>
-      {isLoading ? (
+      {isLoading || data.lenght === 0 ? (
         <LoaderContainer>
           <ActivityIndicator size="large" />
         </LoaderContainer>
