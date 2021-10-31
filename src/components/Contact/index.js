@@ -3,27 +3,32 @@ import { View } from 'react-native';
 import {
   Container,
   ImageContainer,
-  ContactImage,
   InnerContainer,
   DataContainer,
   EmojiContainer,
   Title,
   Subtitle,
 } from './styles';
+import ContactImage from '../ContactImage';
 
-const Contact = ({ name = '', address = '', isFav = false }) => {
-  const userImage = '../../assets/user/small/user-sm.png';
+const Contact = ({ data = {}, isFav = false, navigation }) => {
+  const { name, companyName, smallImageURL } = data;
+
+  const handlePress = () => {
+    navigation.navigate('ContactDetails', data);
+  };
+
   return (
-    <Container>
+    <Container onPress={handlePress}>
       <ImageContainer>
-        <ContactImage size={60} source={require(userImage)} />
+        <ContactImage size={60} src={smallImageURL} />
       </ImageContainer>
       <InnerContainer>
         <DataContainer>
           <EmojiContainer>{isFav && <Title>⭐</Title>}</EmojiContainer>
           <View>
             <Title>{name}</Title>
-            <Subtitle>{address}</Subtitle>
+            <Subtitle>{companyName}</Subtitle>
           </View>
         </DataContainer>
       </InnerContainer>

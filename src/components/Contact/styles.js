@@ -11,11 +11,6 @@ export const ImageContainer = styled.View({
   marginRight: 20,
 });
 
-export const ContactImage = styled.Image(({ size = 100 }) => ({
-  width: size,
-  height: size,
-}));
-
 export const InnerContainer = styled.View({
   justifyContent: 'center',
 });
