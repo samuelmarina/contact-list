@@ -7,31 +7,31 @@ import SectionHeader from '../../components/SectionHeader';
 import axios from '../../util/axios';
 
 const ContactList = ({ navigation }) => {
-  // const data = [
-  //   {
-  //     title: 'Favs',
-  //     data: [
-  //       {
-  //         name: 'Pedro Perez',
-  //         isFav: true,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: 'Others',
-  //     data: [
-  //       {
-  //         name: 'Pedro Perez',
-  //         isFav: true,
-  //       },
-  //     ],
-  //   },
-  // ];
+  const dummy = [
+    {
+      title: 'Favs',
+      data: [
+        {
+          name: 'Pedro Perez',
+          isFav: true,
+        },
+      ],
+    },
+    {
+      title: 'Others',
+      data: [
+        {
+          name: 'Pedro Perez',
+          isFav: true,
+        },
+      ],
+    },
+  ];
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(dummy);
   const [isLoading, setIsLoading] = useState(true);
-  const [favList, setFavList] = useState([{ title: 'Favs', data: [] }]);
-  const [othersList, setOthersList] = useState([{ title: 'Others', data: [] }]);
+  const [favList, setFavList] = useState({ title: 'Favs', data: [] });
+  const [othersList, setOthersList] = useState({ title: 'Others', data: [] });
 
   const renderItem = ({ item, index }) => {
     const { isFavorite } = item;
@@ -75,6 +75,10 @@ const ContactList = ({ navigation }) => {
     };
     getData();
   }, []);
+
+  useEffect(() => {
+    setData([favList, othersList]);
+  }, [favList, othersList]);
 
   return (
     <Container>
