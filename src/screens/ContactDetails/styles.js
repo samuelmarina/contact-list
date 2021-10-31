@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.ScrollView({
+export const Container = styled.View({
   flex: 1,
   padding: 20,
   backgroundColor: 'white',
+});
+
+export const InnerContainer = styled.ScrollView({
+  marginBottom: 10,
 });
 
 export const HeaderContainer = styled.View({
@@ -33,6 +37,4 @@ export const Subtitle = styled.Text({
 export const Separator = styled.View({
   borderBottomWidth: 0.3,
   borderBottomColor: 'gray',
-  width: '100%',
-  marginVertical: 10,
 });
