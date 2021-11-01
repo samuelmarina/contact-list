@@ -1,4 +1,9 @@
-import React, { useEffect } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+} from 'react';
 import {
   Container,
   InnerContainer,
@@ -14,8 +19,15 @@ import {
   getBirthDate,
   getEmail,
 } from '../../helpers/getters';
+import IconButton from '../../components/IconButton';
+import { useState } from 'react/cjs/react.development';
+import { ContactsContext } from '../../util/ContactsContext';
+import { addToFavorites, removeFromFavorites } from '../../helpers/contacts';
 
-const ContactDetails = ({ route }) => {
+const ContactDetails = ({ navigation, route }) => {
+  const { favList, setFavList, othersList, setOthersList } =
+    useContext(ContactsContext);
+  const { data, index } = route.params;
   const {
     largeImageURL,
     name,
@@ -24,7 +36,67 @@ const ContactDetails = ({ route }) => {
     address,
     birthdate,
     emailAddress,
-  } = route.params;
+    isFavorite,
+  } = data;
+  const [isFav, setIsFav] = useState(isFavorite);
+  const [source, setSource] = useState(
+    isFavorite
+      ? require('../../assets/fav/true/favTrue.png')
+      : require('../../assets/fav/false/favFalse.png'),
+  );
+  const [currentIndex, setCurrentIndex] = useState(index);
+
+  const toggleFavorite = useCallback(() => {
+    if (isFav) {
+      const i = removeFromFavorites(
+        data,
+        currentIndex,
+        favList,
+        othersList,
+        setFavList,
+        setOthersList,
+      );
+      setCurrentIndex(i);
+    } else {
+      const i = addToFavorites(
+        data,
+        currentIndex,
+        favList,
+        othersList,
+        setFavList,
+        setOthersList,
+      );
+      setCurrentIndex(i);
+    }
+    setIsFav(prev => !prev);
+    navigation.setOptions({
+      headerRight: () => <IconButton src={source} onPress={toggleFavorite} />,
+    });
+  }, [
+    currentIndex,
+    data,
+    favList,
+    isFav,
+    navigation,
+    othersList,
+    setFavList,
+    setOthersList,
+    source,
+  ]);
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <IconButton src={source} onPress={toggleFavorite} />,
+    });
+  }, [navigation, source, toggleFavorite]);
+
+  useEffect(() => {
+    if (!isFav) {
+      setSource(require('../../assets/fav/false/favFalse.png'));
+    } else {
+      setSource(require('../../assets/fav/true/favTrue.png'));
+    }
+  }, [isFav]);
 
   return (
     <Container>
