@@ -13,7 +13,7 @@ export const getPhoneNums = data => {
     phoneNums.push(
       <DetailCard
         label={text.phone}
-        value={data[key]}
+        value={getUSPhoneFormat(data[key])}
         type={key}
         key={data[key]}
       />,
@@ -21,6 +21,10 @@ export const getPhoneNums = data => {
   }
 
   return phoneNums;
+};
+
+const getUSPhoneFormat = number => {
+  return `(${number.substring(0, 3)}) ${number.substring(4, number.length)}`;
 };
 
 export const getAddress = data => {
