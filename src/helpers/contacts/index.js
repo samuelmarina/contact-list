@@ -1,7 +1,7 @@
 import { nameComparator } from '../comparators';
 import { text } from '../../util/constants/text';
 
-export const addToFavorites = (
+export const addToFavorites = async (
   data,
   index,
   favList,
@@ -15,12 +15,12 @@ export const addToFavorites = (
   data.isFavorite = true;
   favArr.push(data);
   favArr.sort(nameComparator);
-  setFavList({ title: text.favContacts, data: favArr });
-  setOthersList({ title: text.otherContacts, data: othersArr });
+  await setFavList({ title: text.favContacts, data: favArr });
+  await setOthersList({ title: text.otherContacts, data: othersArr });
   return favArr.indexOf(data);
 };
 
-export const removeFromFavorites = (
+export const removeFromFavorites = async (
   data,
   index,
   favList,
@@ -34,7 +34,7 @@ export const removeFromFavorites = (
   data.isFavorite = false;
   othersArr.push(data);
   othersArr.sort(nameComparator);
-  setFavList({ title: text.favContacts, data: favArr });
-  setOthersList({ title: text.otherContacts, data: othersArr });
+  await setFavList({ title: text.favContacts, data: favArr });
+  await setOthersList({ title: text.otherContacts, data: othersArr });
   return othersArr.indexOf(data);
 };

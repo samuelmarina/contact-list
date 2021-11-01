@@ -46,9 +46,10 @@ const ContactDetails = ({ navigation, route }) => {
   );
   const [currentIndex, setCurrentIndex] = useState(index);
 
-  const toggleFavorite = useCallback(() => {
+  const toggleFavorite = useCallback(async () => {
+    let i = 0;
     if (isFav) {
-      const i = removeFromFavorites(
+      i = await removeFromFavorites(
         data,
         currentIndex,
         favList,
@@ -58,7 +59,7 @@ const ContactDetails = ({ navigation, route }) => {
       );
       setCurrentIndex(i);
     } else {
-      const i = addToFavorites(
+      i = await addToFavorites(
         data,
         currentIndex,
         favList,
@@ -66,8 +67,8 @@ const ContactDetails = ({ navigation, route }) => {
         setFavList,
         setOthersList,
       );
-      setCurrentIndex(i);
     }
+    setCurrentIndex(i);
     setIsFav(prev => !prev);
     navigation.setOptions({
       headerRight: () => <IconButton src={source} onPress={toggleFavorite} />,
