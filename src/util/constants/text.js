@@ -5,4 +5,6 @@ export const text = {
   birthdate: 'Birthdate',
   favContacts: 'Favorite Contacts',
   otherContacts: 'Other Contacts',
+  contactsTitle: 'Contacts',
+  contactsDetailsTitle: '',
 };
