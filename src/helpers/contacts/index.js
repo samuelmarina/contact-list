@@ -17,6 +17,7 @@ export const addToFavorites = (
   favArr.sort(nameComparator);
   setFavList({ title: text.favContacts, data: favArr });
   setOthersList({ title: text.otherContacts, data: othersArr });
+  return favArr.indexOf(data);
 };
 
 export const removeFromFavorites = (
@@ -35,4 +36,5 @@ export const removeFromFavorites = (
   othersArr.sort(nameComparator);
   setFavList({ title: text.favContacts, data: favArr });
   setOthersList({ title: text.otherContacts, data: othersArr });
+  return othersArr.indexOf(data);
 };
