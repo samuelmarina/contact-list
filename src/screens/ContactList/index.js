@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { SectionList, ActivityIndicator, Alert, Text } from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
+import { SectionList, ActivityIndicator, Alert } from 'react-native';
 
 import Contact from '../../components/Contact';
 import { Container, Separator, LoaderContainer } from './styles';
@@ -7,15 +7,13 @@ import SectionHeader from '../../components/SectionHeader';
 import axios from '../../util/axios';
 import { text } from '../../util/constants/text';
 import { nameComparator } from '../../helpers/comparators';
+import { ContactsContext } from '../../util/ContactsContext';
 
 const ContactList = ({ navigation }) => {
+  const { favList, setFavList, othersList, setOthersList } =
+    useContext(ContactsContext);
   const [data, setData] = useState([{ title: 'Temp', data: [] }]);
   const [isLoading, setIsLoading] = useState(true);
-  const [favList, setFavList] = useState({ title: text.favContacts, data: [] });
-  const [othersList, setOthersList] = useState({
-    title: text.otherContacts,
-    data: [],
-  });
 
   const renderItem = ({ item, index }) => {
     const { isFavorite } = item;
@@ -23,8 +21,9 @@ const ContactList = ({ navigation }) => {
       <Contact
         data={item}
         isFav={isFavorite}
-        key={index}
+        key={item.id}
         navigation={navigation}
+        index={index}
       />
     );
   };
