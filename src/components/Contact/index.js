@@ -11,11 +11,14 @@ import {
 } from './styles';
 import ContactImage from '../ContactImage';
 
-const Contact = ({ data = {}, isFav = false, navigation }) => {
+const Contact = ({ data = {}, isFav = false, navigation, index }) => {
   const { name, companyName, smallImageURL } = data;
 
   const handlePress = () => {
-    navigation.navigate('ContactDetails', data);
+    navigation.navigate('ContactDetails', {
+      data,
+      index,
+    });
   };
 
   return (
