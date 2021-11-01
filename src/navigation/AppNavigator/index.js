@@ -3,15 +3,31 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import ContactList from '../../screens/ContactList';
 import ContactDetails from '../../screens/ContactDetails';
+import { ContactsProvider } from '../../util/ContactsContext';
+import { text } from '../../util/constants/text';
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="ContactList" component={ContactList} />
-      <Stack.Screen name="ContactDetails" component={ContactDetails} />
-    </Stack.Navigator>
+    <ContactsProvider>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="ContactList"
+          component={ContactList}
+          options={{
+            title: text.contactsTitle,
+          }}
+        />
+        <Stack.Screen
+          name="ContactDetails"
+          component={ContactDetails}
+          options={{
+            title: text.contactsDetailsTitle,
+          }}
+        />
+      </Stack.Navigator>
+    </ContactsProvider>
   );
 };
 
