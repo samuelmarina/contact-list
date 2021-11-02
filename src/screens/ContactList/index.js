@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { SectionList, ActivityIndicator, Alert } from 'react-native';
 
-import Contact from '../../components/Contact';
+import Contact from '../../components/ContactCard';
 import { Container, Separator, LoaderContainer } from './styles';
 import SectionHeader from '../../components/SectionHeader';
 import axios from '../../util/axios';

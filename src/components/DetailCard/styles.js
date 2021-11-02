@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import Theme from '../../config/themes/light';
 
 export const Container = styled.View({
   width: '100%',
-  backgroundColor: 'white',
+  backgroundColor: Theme.secondary,
   flexDirection: 'column',
   paddingVertical: 10,
   marginTop: 10,
 });
 
 export const Label = styled.Text({
-  color: 'gray',
+  color: Theme.gray,
   fontWeight: 600,
   fontSize: 15,
   textTransform: 'uppercase',
@@ -22,13 +23,13 @@ export const InnerContainer = styled.View({
 });
 
 export const Value = styled.Text({
-  color: 'black',
+  color: Theme.primary,
   fontWeight: 'bold',
   fontSize: 16,
 });
 
 export const Type = styled.Text({
-  color: 'gray',
+  color: Theme.gray,
   fontWeight: 500,
   fontSize: 16,
   textTransform: 'capitalize',
@@ -36,6 +37,6 @@ export const Type = styled.Text({
 
 export const Separator = styled.View({
   borderBottomWidth: 0.3,
-  borderBottomColor: 'gray',
+  borderBottomColor: Theme.gray,
   marginTop: 20,
 });

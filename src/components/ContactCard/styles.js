@@ -33,7 +33,7 @@ export const Title = styled.Text({
 });
 
 export const Subtitle = styled.Text({
-  color: Theme.text,
+  color: Theme.gray,
   fontSize: 15,
   fontWeight: 'normal',
 });
