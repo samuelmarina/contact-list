@@ -11,7 +11,7 @@ import {
 } from './styles';
 import ContactImage from '../ContactImage';
 
-const Contact = ({ data = {}, isFav = false, navigation, index }) => {
+const ContactCard = ({ data = {}, isFav = false, navigation, index }) => {
   const { name, companyName, smallImageURL } = data;
 
   const handlePress = () => {
@@ -39,4 +39,4 @@ const Contact = ({ data = {}, isFav = false, navigation, index }) => {
   );
 };
 
-export default Contact;
+export default ContactCard;

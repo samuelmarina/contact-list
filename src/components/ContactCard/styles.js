@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import Theme from '../../config/themes/light';
 
 export const Container = styled.TouchableOpacity({
   width: '100%',
-  backgroundColor: 'white',
+  backgroundColor: Theme.secondary,
   flexDirection: 'row',
   padding: 20,
 });
@@ -25,14 +26,14 @@ export const EmojiContainer = styled.View({
 });
 
 export const Title = styled.Text({
-  color: 'black',
+  color: Theme.primary,
   fontSize: 20,
   fontWeight: 'bold',
   marginBottom: 3,
 });
 
 export const Subtitle = styled.Text({
-  color: 'gray',
+  color: Theme.text,
   fontSize: 15,
   fontWeight: 'normal',
 });
