@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ContactList from '../../screens/ContactList';
 import ContactDetails from '../../screens/ContactDetails';
 import { ContactsProvider } from '../../util/ContactsContext';
-import { text } from '../../util/constants/text';
+import { text, title } from '../../util/constants/text';
 
 const Stack = createStackNavigator();
 
@@ -13,14 +13,14 @@ const AppNavigator = () => {
     <ContactsProvider>
       <Stack.Navigator>
         <Stack.Screen
-          name="ContactList"
+          name={title.contactList}
           component={ContactList}
           options={{
             title: text.contactsTitle,
           }}
         />
         <Stack.Screen
-          name="ContactDetails"
+          name={title.contactDetails}
           component={ContactDetails}
           options={{
             title: text.contactsDetailsTitle,

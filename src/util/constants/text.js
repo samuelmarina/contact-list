@@ -8,3 +8,8 @@ export const text = {
   contactsTitle: 'Contacts',
   contactsDetailsTitle: '',
 };
+
+export const title = {
+  contactList: 'ContactList',
+  contactDetails: 'ContactDetails',
+};
