@@ -1,9 +1,4 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-} from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import {
   Container,
   InnerContainer,
@@ -39,10 +34,10 @@ const ContactDetails = ({ navigation, route }) => {
     isFavorite,
   } = data;
   const [isFav, setIsFav] = useState(isFavorite);
+  const favTruePath = '../../assets/fav/true/favTrue.png';
+  const favFalsePath = '../../assets/fav/false/favFalse.png';
   const [source, setSource] = useState(
-    isFavorite
-      ? require('../../assets/fav/true/favTrue.png')
-      : require('../../assets/fav/false/favFalse.png'),
+    isFavorite ? require(favTruePath) : require(favFalsePath),
   );
   const [currentIndex, setCurrentIndex] = useState(index);
 
@@ -57,7 +52,6 @@ const ContactDetails = ({ navigation, route }) => {
         setFavList,
         setOthersList,
       );
-      setCurrentIndex(i);
     } else {
       i = await addToFavorites(
         data,
@@ -93,9 +87,9 @@ const ContactDetails = ({ navigation, route }) => {
 
   useEffect(() => {
     if (!isFav) {
-      setSource(require('../../assets/fav/false/favFalse.png'));
+      setSource(require(favFalsePath));
     } else {
-      setSource(require('../../assets/fav/true/favTrue.png'));
+      setSource(require(favTruePath));
     }
   }, [isFav]);
 

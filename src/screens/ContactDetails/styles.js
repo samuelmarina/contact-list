@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import Theme from '../../config/themes/light';
 
 export const Container = styled.View({
   flex: 1,
   padding: 20,
-  backgroundColor: 'white',
+  backgroundColor: Theme.secondary,
 });
 
 export const InnerContainer = styled.ScrollView({
@@ -24,17 +25,17 @@ export const ContactImage = styled.Image(({ size = 100 }) => ({
 }));
 
 export const Title = styled.Text({
-  color: 'black',
+  color: Theme.primary,
   fontSize: 30,
   marginBottom: 5,
 });
 
 export const Subtitle = styled.Text({
-  color: 'gray',
+  color: Theme.gray,
   fontSize: 15,
 });
 
 export const Separator = styled.View({
   borderBottomWidth: 0.3,
-  borderBottomColor: 'gray',
+  borderBottomColor: Theme.gray,
 });
