@@ -19,10 +19,10 @@ Inside the `local.properties` file add:
 
 _Where USERNAME is your pc user name. Also make sure the folder is sdk or Sdk_
 - #### Mac
-`sdk.dir=C:\\Users\\UserName\\AppData\\Local\\Android\\sdk`
+`sdk.dir=/Users/USERNAME/Library/Android/sdk`
 
 _Where USERNAME is your OSX username._
 - #### Linux
-`sdk.dir = /home/USERNAME/Android/Sdk`
+`sdk.dir=/home/USERNAME/Android/Sdk`
 
 _Where USERNAME is your linux username (Linux paths are case-sensitive: make sure the case of S in Sdk matches)_
