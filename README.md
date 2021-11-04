@@ -23,6 +23,6 @@ _Where USERNAME is your pc user name. Also make sure the folder is sdk or Sdk_
 
 _Where USERNAME is your OSX username._
 - #### Linux
-`sdk.dir=C:\\Users\\UserName\\AppData\\Local\\Android\\sdk`
+`sdk.dir = /home/USERNAME/Android/Sdk`
 
 _Where USERNAME is your linux username (Linux paths are case-sensitive: make sure the case of S in Sdk matches)_
